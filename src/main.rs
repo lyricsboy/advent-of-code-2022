@@ -1,9 +1,10 @@
 use std::io::{self, BufRead};
 
 mod day01;
+mod day02;
 
 fn main() {
     let stdin = io::stdin();
-    let top_three_total = day01::calories::top_three_total(&mut stdin.lock().lines());
-    println!("Top 3 total: {:?}", top_three_total);
+    let rps_score = day02::rps::rps_score(&mut stdin.lock().lines());
+    println!("RPS Score: {:?}", rps_score);
 }
