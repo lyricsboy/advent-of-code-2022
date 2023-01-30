@@ -86,7 +86,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw";
     #[test]
     fn find_priority_sum_of_common_items() {
         let input = SAMPLE_INPUT.to_string(); 
-        let mut buf = BufReader::new(input.as_bytes());
+        let buf = BufReader::new(input.as_bytes());
         let sum = priority_sum_of_common_items(&mut buf.lines());
         assert_eq!(sum, 70);
     }
