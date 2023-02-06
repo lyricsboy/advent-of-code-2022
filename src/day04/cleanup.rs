@@ -19,8 +19,8 @@ fn is_overlapping_ranges(two_range_line: String) -> Option<bool> {
 }
 
 fn ranges_overlap(range1: &Range<u32>, range2: &Range<u32>) -> bool {
-    (range1.contains(&range2.start) && range1.contains(&(range2.end - 1))) ||
-    (range2.contains(&range1.start) && range2.contains(&(range1.end - 1)))
+    (range1.contains(&range2.start) || range1.contains(&(range2.end - 1))) ||
+    (range2.contains(&range1.start) || range2.contains(&(range1.end - 1)))
 }
 
 fn string_to_range(string_range: &str) -> Option<Range<u32>> {
@@ -54,6 +54,6 @@ mod tests {
         let input = SAMPLE_INPUT.to_string(); 
         let buf = BufReader::new(input.as_bytes());
         let overlapping_range_count = count_overlapping_ranges(&mut buf.lines());
-        assert_eq!(overlapping_range_count, 2);
+        assert_eq!(overlapping_range_count, 4);
     }
 }
